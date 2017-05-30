@@ -1,0 +1,21 @@
+{
+    "modListVersion": 2,
+    "modList": [{
+        "modid": "tfcprimitivetech",
+        "name": "TFC Primitive Technology AddOn",
+        "description": "§bThis mod adds additional functionality for use with TerraFirmaCraft §a${tfc_version}.§r",
+        "version": "${mod_version}",
+        "mcversion": "${minecraft_version}",
+        "url": "",
+        "updateUrl": "",
+        "authorList": ["§6Unknown§r"],
+        "credits": "",
+        "logoFile": "",
+        "screenshots": [],
+        "parent": "",
+        "requiredMods": [  ],
+        "dependencies": [  ],
+        "dependants": [  ],
+        "useDependencyInformation": "true"
+    }]
+}
