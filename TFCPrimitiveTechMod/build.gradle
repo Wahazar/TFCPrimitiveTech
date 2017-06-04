@@ -105,3 +105,6 @@ processResources {
 task wrapper(type: Wrapper) {
 	gradleVersion = '2.2.1'
 }
+
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'

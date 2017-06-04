@@ -22,8 +22,6 @@ import tfcprimitivetech.render.RenderWoodenPress;
 import tfcprimitivetech.tileentities.TileEntityWoodenPressWet;
 import com.bioxx.tfc.Blocks.BlockTerraContainer;
 import com.bioxx.tfc.Core.TFCTabs;
-import com.bioxx.tfc.api.Constant.Global;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -47,7 +45,7 @@ public class BlockWoodenPressWet extends BlockTerraContainer
         
         this.setHardness(0.3f);
         this.setResistance(10.0f);
-        this.setCreativeTab(TFCTabs.TFCMaterials);
+        this.setCreativeTab(TFCTabs.TFC_TOOLS);
         this.setBlockBounds((float)RenderWoodenPress.VoxelSizeScaled, 0, (float)RenderWoodenPress.VoxelSizeScaled, 1 - (float)RenderWoodenPress.VoxelSizeScaled, 8 * (float)RenderWoodenPress.VoxelSizeScaled, 1 - (float)RenderWoodenPress.VoxelSizeScaled);
         
     }

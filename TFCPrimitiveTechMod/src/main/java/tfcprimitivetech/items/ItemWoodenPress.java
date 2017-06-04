@@ -25,7 +25,7 @@ public class ItemWoodenPress extends ItemTerra {
 	public ItemWoodenPress() {
 		super();
 		this.maxStackSize = 2;
-		this.setCreativeTab(TFCTabs.TFCMaterials);
+		this.setCreativeTab(TFCTabs.TFC_TOOLS);
 		this.hasSubtypes = false;
 		this.setUnlocalizedName("ItemWoodenPress");		
 	}

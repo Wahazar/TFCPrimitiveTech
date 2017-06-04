@@ -25,7 +25,7 @@ public class ItemCelluloseFibers extends Item implements ISize
 	{
 		super();
 		this.maxStackSize = 64;
-		this.setCreativeTab(CreativeTabs.tabMisc);
+		this.setCreativeTab(TFCTabs.TFC_MATERIALS);
 		this.hasSubtypes = false;
 		this.setUnlocalizedName("ItemCelluloseFibers");		
 	}

@@ -4,12 +4,19 @@ import java.io.File;
 
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.world.World;
+import tfcprimitivetech.TFCPrimitiveTech;
+import tfcprimitivetech.entities.EntityProjectileSharpStone;
+import tfcprimitivetech.entities.EntityProjectileHardStone;
+import tfcprimitivetech.entities.EntityProjectileSoftStone;
+import tfcprimitivetech.entities.EntityProjectileStone;
 import tfcprimitivetech.tileentities.TileEntityWoodenPressWet;
 
 import com.bioxx.tfc.Handlers.ServerTickHandler;
 
 import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.event.FMLInterModComms;
 import cpw.mods.fml.common.network.NetworkRegistry;
+import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 
@@ -44,7 +51,8 @@ public class ModCommonProxy
 	{
 		return false;
 	}
-
+	
+	
 	public void loadOptions()
 	{
 		//Load our settings from the Options file
@@ -94,6 +102,11 @@ public class ModCommonProxy
 	{
 		// non TESR registers
         registerCommonTileEntities();
+		EntityRegistry.registerModEntity(EntityProjectileSharpStone.class, "itemSharpStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+		EntityRegistry.registerModEntity(EntityProjectileHardStone.class, "itemHardStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+		EntityRegistry.registerModEntity(EntityProjectileSoftStone.class, "itemSoftStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+		EntityRegistry.registerGlobalEntityID(EntityProjectileStone.class, "SlingshotStone", EntityRegistry.findGlobalUniqueEntityId());
+        
 		if (flag)
 		{
 			// TESR registers
@@ -111,6 +124,7 @@ public class ModCommonProxy
 
 	public void registerWailaClasses()
 	{
+			FMLInterModComms.sendMessage("Waila", "register", "tfcprimitivetech.handlers.WailaHandler.callbackRegister");			
 	}
 
 	public void uploadKeyBindingsToGame()

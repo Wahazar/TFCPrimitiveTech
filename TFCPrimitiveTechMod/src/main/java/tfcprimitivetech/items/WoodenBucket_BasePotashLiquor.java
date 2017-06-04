@@ -27,8 +27,8 @@ public class WoodenBucket_BasePotashLiquor extends Item implements ISize
 	public WoodenBucket_BasePotashLiquor()
 	{
 		super();
-		this.maxStackSize = 64;
-		this.setCreativeTab(TFCTabs.TFCMisc);
+		this.maxStackSize = 1;
+		this.setCreativeTab(TFCTabs.TFC_MISC);
 		this.hasSubtypes = false;
 		this.setUnlocalizedName("WoodenBucket_BasePotashLiquor");		
 	}
@@ -57,7 +57,7 @@ public class WoodenBucket_BasePotashLiquor extends Item implements ISize
             if (!world.canMineBlock(player, x, y, z))
                 return is;
 
-            return new ItemStack(TFCItems.WoodenBucketEmpty);
+            return new ItemStack(TFCItems.woodenBucketEmpty);
         }
 
         return is;
@@ -85,7 +85,7 @@ public class WoodenBucket_BasePotashLiquor extends Item implements ISize
 	@Override
 	public boolean canStack()
 	{
-		return true;
+		return false;
 	}
 
 	@Override

@@ -1,9 +1,11 @@
 package tfcprimitivetech.core;
 
 import com.bioxx.tfc.api.TFCItems;
+import com.bioxx.tfc.api.Constant.Global;
 import com.bioxx.tfc.api.Crafting.BarrelManager;
 import com.bioxx.tfc.api.Crafting.BarrelMultiItemRecipe;
 import com.bioxx.tfc.api.Crafting.BarrelRecipe;
+import com.bioxx.tfc.api.Crafting.CraftingManagerTFC;
 import com.bioxx.tfc.api.HeatRaw;
 
 import java.util.List;
@@ -28,7 +30,7 @@ import tfcprimitivetech.fluids.FluidList;
 
 public class ModRecipes
 {	
-	public static final int WILDCARD_VALUE = OreDictionary.WILDCARD_VALUE;
+	public static final int WILD = OreDictionary.WILDCARD_VALUE;
 	
 	//private static AnvilManager anvilManager = AnvilManager.getInstance();
 	//private static BarrelManager barrelManager = BarrelManager.getInstance();
@@ -86,11 +88,11 @@ public class ModRecipes
     private static void registerBarrelRecipes()
     {
         BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(ModItems.powderAsh, 1, 0), new FluidStack(TFCFluids.FRESHWATER, 500), null, new FluidStack(FluidList.BasePotashLiquor, 500), 8).setMinTechLevel(0).setSealedRecipe(true).setRemovesLiquid(false).setAllowAnyStack(false));
-        BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(TFCItems.Reeds, 1, 0), new FluidStack(FluidList.BasePotashLiquor, 156), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new FluidStack(FluidList.Waste, 156), 24).setMinTechLevel(0).setSealedRecipe(true).setRemovesLiquid(false).setAllowAnyStack(false));
+        BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(TFCItems.reeds, 1, 0), new FluidStack(FluidList.BasePotashLiquor, 156), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new FluidStack(FluidList.Waste, 156), 24).setMinTechLevel(0).setSealedRecipe(true).setRemovesLiquid(false).setAllowAnyStack(false));
         
-        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.Hide, 1, 0), new FluidStack(FluidList.BasePotashLiquor, 300), new ItemStack(TFCItems.SoakedHide, 1, 0), new FluidStack(FluidList.Waste, 300)).setMinTechLevel(0));
-        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.Hide, 1, 1), new FluidStack(FluidList.BasePotashLiquor, 600), new ItemStack(TFCItems.SoakedHide, 1, 1), new FluidStack(FluidList.Waste, 600)).setMinTechLevel(0));
-        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.Hide, 1, 2), new FluidStack(FluidList.BasePotashLiquor, 900), new ItemStack(TFCItems.SoakedHide, 1, 2), new FluidStack(FluidList.Waste, 900)).setMinTechLevel(0));
+        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.hide, 1, 0), new FluidStack(FluidList.BasePotashLiquor, 300), new ItemStack(TFCItems.soakedHide, 1, 0), new FluidStack(FluidList.Waste, 300)).setMinTechLevel(0));
+        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.hide, 1, 1), new FluidStack(FluidList.BasePotashLiquor, 600), new ItemStack(TFCItems.soakedHide, 1, 1), new FluidStack(FluidList.Waste, 600)).setMinTechLevel(0));
+        BarrelManager.getInstance().addRecipe(new BarrelMultiItemRecipe(new ItemStack(TFCItems.hide, 1, 2), new FluidStack(FluidList.BasePotashLiquor, 900), new ItemStack(TFCItems.soakedHide, 1, 2), new FluidStack(FluidList.Waste, 900)).setMinTechLevel(0));
         
     }
 
@@ -100,28 +102,57 @@ public class ModRecipes
     	 for (int i = 0; i < recipes.size(); i++)
     	 {
     			 IRecipe tmpRecipe = recipes.get(i);
-    			 {
+    			 ItemStack recipeResult = null;	 
     			 if (tmpRecipe instanceof ShapedRecipes) {
     					 ShapedRecipes recipe = (ShapedRecipes)tmpRecipe;
-    					 ItemStack recipeResult = recipe.getRecipeOutput();
-    			
-    					 if (ItemStack.areItemStacksEqual(resultItem, recipeResult)) {
-    							 recipes.remove(i--);
-    					 }
+    					 recipeResult = recipe.getRecipeOutput();
     			 }
+    			 else if (tmpRecipe instanceof ShapedOreRecipe)
+    			 {
+    				 ShapedOreRecipe recipe = (ShapedOreRecipe)tmpRecipe;
+					 recipeResult = recipe.getRecipeOutput();    				 
+    			 }   			
+    			 if (ItemStack.areItemStacksEqual(resultItem, recipeResult)) {
+    							 recipes.remove(i--);
+    				}
     		}
-    	 }
     }
     
 	private static void registerRecipes()
 	{
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.itemWoodenTwig, 3, 0), new Object[] { "logWood", "itemHammer" }));	
-		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCItems.Stick, 1, 0), new Object[] {
+		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCItems.stick, 1, 0), new Object[] {
 				new ItemStack(ModItems.itemWoodenTwig, 1, 0), "itemKnife" }));
 		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.WoodenPressWet, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenPress, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemWoodenPress, 1, 0) });	
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.itemWoodenPress, 1, 0), new Object[] { "logWood", "logWood", "logWood", "logWood"}));	
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemSlingshot, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenTwig, 1, 0), new ItemStack(ModItems.itemLeatherBelt, 1, 0) });	
 
-		RemoveRecipe(new ItemStack(Items.paper, 3, 0));
-		System.out.println("[" + ModDetails.ModName + "] Registering stick recipe");
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemLeatherBelt, 1), new Object[] { "#####", Character.valueOf('#'), TFCItems.flatLeather});		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemLeatherBelt, 3), new Object[] { "#####","     ","#####","     ","#####", Character.valueOf('#'), TFCItems.flatLeather});		
+
+		for(int i = 0; i < Global.STONE_IGIN.length; i++)
+		{		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemHardStone, 4), new Object[]
+				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_IGIN_START) });
+		}
+		for(int i = 0; i < Global.STONE_IGEX.length; i++)
+		{		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemHardStone, 4), new Object[]
+				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_IGEX_START) });
+		}
+		for(int i = 0; i < Global.STONE_MM.length; i++)
+		{		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemSharpStone, 4), new Object[]
+				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_MM_START) });
+		}
+		for(int i = 0; i < Global.STONE_SED.length; i++)
+		{		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemSoftStone, 4), new Object[]
+				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_SED_START) });
+		}
+		
+		
+		RemoveRecipe(new ItemStack(Items.paper, 3));
+
 	}
 }

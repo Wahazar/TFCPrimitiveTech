@@ -24,7 +24,7 @@ public class PowderAsh extends ItemTerra {
 	public PowderAsh() {
 		super();
 		this.maxStackSize = 64;
-		this.setCreativeTab(TFCTabs.TFCMaterials);
+		this.setCreativeTab(TFCTabs.TFC_MATERIALS);
 		this.hasSubtypes = false;
 		this.setUnlocalizedName("PowderAsh");		
 	}

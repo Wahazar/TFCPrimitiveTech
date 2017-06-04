@@ -38,7 +38,10 @@ public class ItemBlockWoodenPressWet extends ItemBlock implements ISize
     @Override
     public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
     {
-        ItemTerra.addSizeInformation(is, arraylist);
+        int meta = is.getItemDamage();
+        String tip = (meta == 0 ? "Place exposed to sun" : "Break to achieve paper");
+        arraylist.add(tip);
+    	ItemTerra.addSizeInformation(is, arraylist);
     }
     
     @Override
@@ -58,6 +61,7 @@ public class ItemBlockWoodenPressWet extends ItemBlock implements ISize
     {
         return i;
     }
+    
     
     @Override
     public EnumSize getSize(ItemStack is)

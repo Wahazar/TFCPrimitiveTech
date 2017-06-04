@@ -5,6 +5,13 @@ import java.io.File;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import tfcprimitivetech.render.RenderWoodenPress;
+import tfcprimitivetech.entities.EntityProjectileSharpStone;
+import tfcprimitivetech.entities.EntityProjectileHardStone;
+import tfcprimitivetech.entities.EntityProjectileSoftStone;
+import tfcprimitivetech.render.RenderSharpStone;
+import tfcprimitivetech.render.RenderHardStone;
+import tfcprimitivetech.render.RenderSoftStone;
+
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.common.Loader;
 import cpw.mods.fml.common.network.NetworkRegistry;
@@ -87,6 +94,10 @@ public class ModClientProxy extends ModCommonProxy
 	public void registerRenderInformation()
 	{
 		RenderingRegistry.registerBlockHandler(ModBlocks.WoodenPressRenderId = RenderingRegistry.getNextAvailableRenderId(), new RenderWoodenPress());
+		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSharpStone.class, new RenderSharpStone());
+		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileHardStone.class, new RenderHardStone());		
+		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSoftStone.class, new RenderSoftStone());		
+		
 	}
 	
 	@Override

@@ -23,9 +23,9 @@ public class CraftingHandler
 	        if(inventory != null)
         	{
 	            if(item == ModItems.itemWoodenTwig)
-        	        com.bioxx.tfc.Handlers.CraftingHandler.HandleItem(e.player, e.craftMatrix, Recipes.Hammers);
-	            if(item == TFCItems.Stick)
-        	        com.bioxx.tfc.Handlers.CraftingHandler.HandleItem(e.player, e.craftMatrix, Recipes.Knives);
+        	        com.bioxx.tfc.Handlers.CraftingHandler.handleItem(e.player, e.craftMatrix, Recipes.hammers);
+	            if(item == TFCItems.stick)
+        	        com.bioxx.tfc.Handlers.CraftingHandler.handleItem(e.player, e.craftMatrix, Recipes.knives);
 	        }
 
 

@@ -70,13 +70,14 @@ public class TFCPrimitiveTech
 		
 		// Register Gui Handler
 		proxy.registerGuiHandler();		
+//		proxy.registerWailaHandler();
 	}
 
 	@EventHandler
 	public void initialize(FMLInitializationEvent e)
 	{
 		// Register packets in the TFC PacketPipeline
-		TerraFirmaCraft.packetPipeline.registerPacket(InitClientWorldPacket.class);
+		TerraFirmaCraft.PACKET_PIPELINE.registerPacket(InitClientWorldPacket.class);
 		
 		// Register the player tracker
 		FMLCommonHandler.instance().bus().register(new ModPlayerTracker());

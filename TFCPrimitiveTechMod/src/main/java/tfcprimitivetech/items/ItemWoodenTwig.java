@@ -25,7 +25,7 @@ public class ItemWoodenTwig extends ItemTerra {
 	public ItemWoodenTwig() {
 		super();
 		this.maxStackSize = 64;
-		this.setCreativeTab(TFCTabs.TFCMaterials);
+		this.setCreativeTab(TFCTabs.TFC_MATERIALS);
 		this.hasSubtypes = false;
 		this.setUnlocalizedName("ItemWoodenTwig");		
 	}
@@ -42,7 +42,7 @@ public class ItemWoodenTwig extends ItemTerra {
 	@Override
 	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
-		arraylist.add(TFC_ItemHeat.getHeatColor(TFC_ItemHeat.GetTemp(is), TFC_ItemHeat.IsCookable(is)));
+		arraylist.add(TFC_ItemHeat.getHeatColor(TFC_ItemHeat.getTemp(is), TFC_ItemHeat.isCookable(is)));
 		ItemTerra.addSizeInformation(is, arraylist);
 	}
 

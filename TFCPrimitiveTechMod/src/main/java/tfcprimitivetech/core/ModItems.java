@@ -7,6 +7,11 @@ import tfcprimitivetech.items.PowderAsh;
 import tfcprimitivetech.items.WoodenBucket_BasePotashLiquor;
 import tfcprimitivetech.items.ItemCelluloseFibers;
 import tfcprimitivetech.items.ItemWoodenPress;
+import tfcprimitivetech.items.ItemLeatherBelt;
+import tfcprimitivetech.items.ItemSharpStone;
+import tfcprimitivetech.items.ItemHardStone;
+import tfcprimitivetech.items.ItemSoftStone;
+import tfcprimitivetech.items.ItemSlingshot;
 
 public class ModItems 
 {
@@ -16,6 +21,11 @@ public class ModItems
 	public static Item woodenBucket_BasePotashLiquor;
 	public static Item itemCelluloseFibers;
 	public static Item itemWoodenPress;
+	public static Item itemLeatherBelt;
+	public static Item itemSharpStone;
+	public static Item itemHardStone;
+	public static Item itemSoftStone;	
+	public static Item itemSlingshot;	
 	
 	public static void initialise()
 	{
@@ -26,6 +36,11 @@ public class ModItems
 		woodenBucket_BasePotashLiquor = new WoodenBucket_BasePotashLiquor();
 		itemCelluloseFibers = new ItemCelluloseFibers();
 		itemWoodenPress = new ItemWoodenPress();
+		itemLeatherBelt = new ItemLeatherBelt();
+		itemSharpStone = new ItemSharpStone();
+		itemHardStone = new ItemHardStone();
+		itemSoftStone = new ItemSoftStone();
+		itemSlingshot = new ItemSlingshot();
 		
 		registerItems();
 		        
@@ -39,5 +54,10 @@ public class ModItems
 	  GameRegistry.registerItem(woodenBucket_BasePotashLiquor, "woodenBucket_BasePotashLiquor");
 	  GameRegistry.registerItem(itemCelluloseFibers, "itemCelluloseFibers");
 	  GameRegistry.registerItem(itemWoodenPress, "itemWoodenPress");
+	  GameRegistry.registerItem(itemLeatherBelt, "itemLeatherBelt");
+	  GameRegistry.registerItem(itemSharpStone, "itemSharpStone");
+	  GameRegistry.registerItem(itemHardStone, "itemHardStone");
+	  GameRegistry.registerItem(itemSoftStone, "itemSoftStone");
+	  GameRegistry.registerItem(itemSlingshot, "itemSlingshot");	  
 	}
 }

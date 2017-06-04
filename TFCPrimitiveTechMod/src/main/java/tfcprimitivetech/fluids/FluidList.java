@@ -28,7 +28,7 @@ public class FluidList
     public static void registerFluidContainers()
     {
                  
-        FluidContainerRegistry.registerFluidContainer(new FluidStack(BasePotashLiquor, 1000), new ItemStack(ModItems.woodenBucket_BasePotashLiquor), new ItemStack(TFCItems.WoodenBucketEmpty));
+        FluidContainerRegistry.registerFluidContainer(new FluidStack(BasePotashLiquor, 1000), new ItemStack(ModItems.woodenBucket_BasePotashLiquor), new ItemStack(TFCItems.woodenBucketEmpty));
 
     }
 }
