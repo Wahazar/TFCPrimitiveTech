@@ -25,6 +25,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.ShapedRecipes;
+import tfcprimitivetech.TFCPrimitiveTech;
 import tfcprimitivetech.core.ModItems;
 import tfcprimitivetech.fluids.FluidList;
 
@@ -123,9 +124,11 @@ public class ModRecipes
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.itemWoodenTwig, 3, 0), new Object[] { "logWood", "itemHammer" }));	
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(TFCItems.stick, 1, 0), new Object[] {
 				new ItemStack(ModItems.itemWoodenTwig, 1, 0), "itemKnife" }));
-		GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.WoodenPressWet, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenPress, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemWoodenPress, 1, 0) });	
+        if (TFCPrimitiveTech.instance.isPaperEnabled)
+        	GameRegistry.addShapelessRecipe(new ItemStack(ModBlocks.WoodenPressWet, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenPress, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemCelluloseFibers, 1, 0), new ItemStack(ModItems.itemWoodenPress, 1, 0) });	
 		GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(ModItems.itemWoodenPress, 1, 0), new Object[] { "logWood", "logWood", "logWood", "logWood"}));	
-		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemSlingshot, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenTwig, 1, 0), new ItemStack(ModItems.itemLeatherBelt, 1, 0) });	
+        if (TFCPrimitiveTech.instance.isSlingshotEnabled)
+        	GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemSlingshot, 1, 0), new Object[] { new ItemStack(ModItems.itemWoodenTwig, 1, 0), new ItemStack(ModItems.itemLeatherBelt, 1, 0) });	
 
 		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemLeatherBelt, 1), new Object[] { "#####", Character.valueOf('#'), TFCItems.flatLeather});		
 		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemLeatherBelt, 3), new Object[] { "#####","     ","#####","     ","#####", Character.valueOf('#'), TFCItems.flatLeather});		
@@ -151,8 +154,8 @@ public class ModRecipes
 				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_SED_START) });
 		}
 		
-		
-		RemoveRecipe(new ItemStack(Items.paper, 3));
+        if (TFCPrimitiveTech.instance.isPaperEnabled)
+        	RemoveRecipe(new ItemStack(Items.paper, 3));
 
 	}
 }

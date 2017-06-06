@@ -5,6 +5,7 @@ import net.minecraft.item.Item;
 import tfcprimitivetech.items.ItemWoodenTwig;
 import tfcprimitivetech.items.PowderAsh;
 import tfcprimitivetech.items.WoodenBucket_BasePotashLiquor;
+import tfcprimitivetech.TFCPrimitiveTech;
 import tfcprimitivetech.items.ItemCelluloseFibers;
 import tfcprimitivetech.items.ItemWoodenPress;
 import tfcprimitivetech.items.ItemLeatherBelt;
@@ -37,10 +38,13 @@ public class ModItems
 		itemCelluloseFibers = new ItemCelluloseFibers();
 		itemWoodenPress = new ItemWoodenPress();
 		itemLeatherBelt = new ItemLeatherBelt();
-		itemSharpStone = new ItemSharpStone();
-		itemHardStone = new ItemHardStone();
-		itemSoftStone = new ItemSoftStone();
-		itemSlingshot = new ItemSlingshot();
+        if (TFCPrimitiveTech.instance.isSlingshotEnabled)
+        {
+        	itemSharpStone = new ItemSharpStone();
+        	itemHardStone = new ItemHardStone();
+        	itemSoftStone = new ItemSoftStone();
+        	itemSlingshot = new ItemSlingshot();
+        }
 		
 		registerItems();
 		        
@@ -55,9 +59,12 @@ public class ModItems
 	  GameRegistry.registerItem(itemCelluloseFibers, "itemCelluloseFibers");
 	  GameRegistry.registerItem(itemWoodenPress, "itemWoodenPress");
 	  GameRegistry.registerItem(itemLeatherBelt, "itemLeatherBelt");
-	  GameRegistry.registerItem(itemSharpStone, "itemSharpStone");
-	  GameRegistry.registerItem(itemHardStone, "itemHardStone");
-	  GameRegistry.registerItem(itemSoftStone, "itemSoftStone");
-	  GameRegistry.registerItem(itemSlingshot, "itemSlingshot");	  
+      if (TFCPrimitiveTech.instance.isSlingshotEnabled)
+      {
+    	  GameRegistry.registerItem(itemSharpStone, "itemSharpStone");
+    	  GameRegistry.registerItem(itemHardStone, "itemHardStone");
+    	  GameRegistry.registerItem(itemSoftStone, "itemSoftStone");
+    	  GameRegistry.registerItem(itemSlingshot, "itemSlingshot");
+      }
 	}
 }

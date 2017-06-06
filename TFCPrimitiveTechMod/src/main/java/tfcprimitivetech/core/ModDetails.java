@@ -7,7 +7,7 @@ public class ModDetails
 
 	public static final int VersionMajor = 1;
 	public static final int VersionMinor = 0;
-	public static final int VersionRevision = 0;
+	public static final int VersionRevision = 1;
 
 	public static final String ModVersion = VersionMajor + "." + VersionMinor + "." + VersionRevision;
 	public static final String ModDependencies = "after:TerraFirmaCraft";

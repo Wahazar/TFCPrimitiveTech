@@ -102,11 +102,13 @@ public class ModCommonProxy
 	{
 		// non TESR registers
         registerCommonTileEntities();
-		EntityRegistry.registerModEntity(EntityProjectileSharpStone.class, "itemSharpStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
-		EntityRegistry.registerModEntity(EntityProjectileHardStone.class, "itemHardStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
-		EntityRegistry.registerModEntity(EntityProjectileSoftStone.class, "itemSoftStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
-		EntityRegistry.registerGlobalEntityID(EntityProjectileStone.class, "SlingshotStone", EntityRegistry.findGlobalUniqueEntityId());
-        
+        if (TFCPrimitiveTech.instance.isSlingshotEnabled)
+        {
+        	EntityRegistry.registerModEntity(EntityProjectileSharpStone.class, "itemSharpStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+        	EntityRegistry.registerModEntity(EntityProjectileHardStone.class, "itemHardStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+        	EntityRegistry.registerModEntity(EntityProjectileSoftStone.class, "itemSoftStone", 1, TFCPrimitiveTech.instance, 64, 5, true);
+        	EntityRegistry.registerGlobalEntityID(EntityProjectileStone.class, "SlingshotStone", EntityRegistry.findGlobalUniqueEntityId());
+        }
 		if (flag)
 		{
 			// TESR registers
@@ -115,7 +117,10 @@ public class ModCommonProxy
 
     protected void registerCommonTileEntities()
     {
-        GameRegistry.registerTileEntity(TileEntityWoodenPressWet.class, "WoodenPress");
+        if (TFCPrimitiveTech.instance.isPaperEnabled)
+        {   	
+        	GameRegistry.registerTileEntity(TileEntityWoodenPressWet.class, "WoodenPress");
+        }
     }
 
 	public void registerToolClasses()

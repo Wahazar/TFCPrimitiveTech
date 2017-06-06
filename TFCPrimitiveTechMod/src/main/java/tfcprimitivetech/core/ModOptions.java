@@ -4,10 +4,12 @@ import java.io.File;
 
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
+import tfcprimitivetech.TFCPrimitiveTech;
 
 public class ModOptions
 {
 	// General
+    	private static final String CategoryName_Options = "Options";
 	
 	public static void loadSettings()
 	{	
@@ -28,7 +30,7 @@ public class ModOptions
 		
 		/** Start Here **/
 
-		// General
+		loadOptions(config);
 				
 		/** End Here*/
 		if (config != null)
@@ -166,4 +168,10 @@ public class ModOptions
 		}
 		return value;
 	}
+    private static void loadOptions(Configuration config)
+    {
+        TFCPrimitiveTech.instance.isPaperEnabled = config.get(CategoryName_Options, "PaperEnabled", true).getBoolean();
+        TFCPrimitiveTech.instance.isSlingshotEnabled = config.get(CategoryName_Options, "SlingshotEnabled", true).getBoolean();
+
+    }
 }

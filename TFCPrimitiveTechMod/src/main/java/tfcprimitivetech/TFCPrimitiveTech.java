@@ -29,6 +29,10 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = ModDetails.ModID, name = ModDetails.ModName, version = ModDetails.ModVersion, dependencies = ModDetails.ModDependencies)
 public class TFCPrimitiveTech
 {
+
+	public static boolean isPaperEnabled;
+	public static boolean isSlingshotEnabled;
+	
 	@Instance(ModDetails.ModID)
 	public static TFCPrimitiveTech instance;
 

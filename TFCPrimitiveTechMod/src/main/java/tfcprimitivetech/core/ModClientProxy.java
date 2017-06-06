@@ -6,6 +6,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.world.World;
 import tfcprimitivetech.render.RenderWoodenPress;
 import tfcprimitivetech.entities.EntityProjectileSharpStone;
+import tfcprimitivetech.TFCPrimitiveTech;
 import tfcprimitivetech.entities.EntityProjectileHardStone;
 import tfcprimitivetech.entities.EntityProjectileSoftStone;
 import tfcprimitivetech.render.RenderSharpStone;
@@ -93,10 +94,14 @@ public class ModClientProxy extends ModCommonProxy
 	@SideOnly(Side.CLIENT)
 	public void registerRenderInformation()
 	{
-		RenderingRegistry.registerBlockHandler(ModBlocks.WoodenPressRenderId = RenderingRegistry.getNextAvailableRenderId(), new RenderWoodenPress());
-		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSharpStone.class, new RenderSharpStone());
-		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileHardStone.class, new RenderHardStone());		
-		RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSoftStone.class, new RenderSoftStone());		
+        if (TFCPrimitiveTech.instance.isPaperEnabled)
+        	RenderingRegistry.registerBlockHandler(ModBlocks.WoodenPressRenderId = RenderingRegistry.getNextAvailableRenderId(), new RenderWoodenPress());
+        if (TFCPrimitiveTech.instance.isSlingshotEnabled)
+        {
+        	RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSharpStone.class, new RenderSharpStone());
+        	RenderingRegistry.registerEntityRenderingHandler(EntityProjectileHardStone.class, new RenderHardStone());		
+        	RenderingRegistry.registerEntityRenderingHandler(EntityProjectileSoftStone.class, new RenderSoftStone());
+        }
 		
 	}
 	

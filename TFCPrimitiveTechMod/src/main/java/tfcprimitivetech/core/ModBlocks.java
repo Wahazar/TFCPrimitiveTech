@@ -1,7 +1,7 @@
 package tfcprimitivetech.core;
 
 import net.minecraft.block.Block;
-
+import tfcprimitivetech.TFCPrimitiveTech;
 import tfcprimitivetech.blocks.BlockWoodenPressWet;
 import tfcprimitivetech.items.ItemBlockWoodenPressWet;
 import com.bioxx.tfc.api.Constant.Global;
@@ -21,7 +21,8 @@ public class ModBlocks
 	{
 		System.out.println("[" + ModDetails.ModName + "] Registering Blocks");
 
-        	WoodenPressWet = new BlockWoodenPressWet().setBlockName("WoodenPressWet");
+        	if (TFCPrimitiveTech.instance.isPaperEnabled)
+        		WoodenPressWet = new BlockWoodenPressWet().setBlockName("WoodenPressWet");
 		
 		registerBlocks();
 		
@@ -30,6 +31,7 @@ public class ModBlocks
 
 	private static void registerBlocks()
 	{
-	        GameRegistry.registerBlock(WoodenPressWet, ItemBlockWoodenPressWet.class, WoodenPressWet.getUnlocalizedName().substring(5));
+    	if (TFCPrimitiveTech.instance.isPaperEnabled)
+    		GameRegistry.registerBlock(WoodenPressWet, ItemBlockWoodenPressWet.class, WoodenPressWet.getUnlocalizedName().substring(5));
 	}
 }
