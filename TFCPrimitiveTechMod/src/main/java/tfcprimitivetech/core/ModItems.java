@@ -1,11 +1,14 @@
 package tfcprimitivetech.core;
 
+import com.bioxx.tfc.Items.ItemTerra;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.item.Item;
 import tfcprimitivetech.items.ItemWoodenTwig;
 import tfcprimitivetech.items.PowderAsh;
 import tfcprimitivetech.items.WoodenBucket_BasePotashLiquor;
 import tfcprimitivetech.TFCPrimitiveTech;
+//import tfcprimitivetech.items.ItemSack;
 import tfcprimitivetech.items.ItemCelluloseFibers;
 import tfcprimitivetech.items.ItemWoodenPress;
 import tfcprimitivetech.items.ItemLeatherBelt;
@@ -27,6 +30,7 @@ public class ModItems
 	public static Item itemHardStone;
 	public static Item itemSoftStone;	
 	public static Item itemSlingshot;	
+//	public static Item itemSack;	
 	
 	public static void initialise()
 	{
@@ -45,6 +49,8 @@ public class ModItems
         	itemSoftStone = new ItemSoftStone();
         	itemSlingshot = new ItemSlingshot();
         }
+
+//		itemSack = new ItemSack();
 		
 		registerItems();
 		        
@@ -66,5 +72,6 @@ public class ModItems
     	  GameRegistry.registerItem(itemSoftStone, "itemSoftStone");
     	  GameRegistry.registerItem(itemSlingshot, "itemSlingshot");
       }
+//	  GameRegistry.registerItem(itemSack, "itemSack");
 	}
 }

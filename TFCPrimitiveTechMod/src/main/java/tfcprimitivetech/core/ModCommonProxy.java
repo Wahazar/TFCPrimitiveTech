@@ -9,6 +9,8 @@ import tfcprimitivetech.entities.EntityProjectileSharpStone;
 import tfcprimitivetech.entities.EntityProjectileHardStone;
 import tfcprimitivetech.entities.EntityProjectileSoftStone;
 import tfcprimitivetech.entities.EntityProjectileStone;
+import tfcprimitivetech.handlers.GuiHandler;
+// import tfcprimitivetech.tileentities.TileEntityBurlapSack;
 import tfcprimitivetech.tileentities.TileEntityWoodenPressWet;
 
 import com.bioxx.tfc.Handlers.ServerTickHandler;
@@ -69,7 +71,7 @@ public class ModCommonProxy
 
 	public void registerGuiHandler()
 	{
-		NetworkRegistry.INSTANCE.registerGuiHandler(tfcprimitivetech.TFCPrimitiveTech.instance, new tfcprimitivetech.handlers.GuiHandler());
+		NetworkRegistry.INSTANCE.registerGuiHandler(TFCPrimitiveTech.instance, new GuiHandler());
 	}
 
 	public void registerHandlers()
@@ -111,6 +113,7 @@ public class ModCommonProxy
         }
 		if (flag)
 		{
+//			GameRegistry.registerTileEntity(TileEntityBurlapSack.class, "Sack");
 			// TESR registers
 		}
 	}

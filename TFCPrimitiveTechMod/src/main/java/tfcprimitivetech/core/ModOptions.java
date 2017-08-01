@@ -50,7 +50,7 @@ public class ModOptions
 		}
 		catch (Exception e)
 		{
-			System.out.println("[" + ModDetails.ModName + "] Error while trying to add Integer, config wasn't loaded properly!");
+			System.out.println("[" + ModDetails.ModName + "] Error while trying to add Boolean, config wasn't loaded properly!");
 		}
 		return value;
 	}

@@ -42,8 +42,11 @@ public class ItemWoodenTwig extends ItemTerra {
 	@Override
 	public void addInformation(ItemStack is, EntityPlayer player, List arraylist, boolean flag)
 	{
-		arraylist.add(TFC_ItemHeat.getHeatColor(TFC_ItemHeat.getTemp(is), TFC_ItemHeat.isCookable(is)));
-		ItemTerra.addSizeInformation(is, arraylist);
+		if(TFC_ItemHeat.hasTemp(is))
+		{
+			arraylist.add(TFC_ItemHeat.getHeatColor(TFC_ItemHeat.getTemp(is), TFC_ItemHeat.isCookable(is)));
+			ItemTerra.addSizeInformation(is, arraylist);
+		}
 	}
 
 	@Override
