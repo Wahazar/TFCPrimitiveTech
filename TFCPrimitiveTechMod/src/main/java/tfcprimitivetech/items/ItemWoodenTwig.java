@@ -45,8 +45,8 @@ public class ItemWoodenTwig extends ItemTerra {
 		if(TFC_ItemHeat.hasTemp(is))
 		{
 			arraylist.add(TFC_ItemHeat.getHeatColor(TFC_ItemHeat.getTemp(is), TFC_ItemHeat.isCookable(is)));
-			ItemTerra.addSizeInformation(is, arraylist);
 		}
+		ItemTerra.addSizeInformation(is, arraylist);
 	}
 
 	@Override

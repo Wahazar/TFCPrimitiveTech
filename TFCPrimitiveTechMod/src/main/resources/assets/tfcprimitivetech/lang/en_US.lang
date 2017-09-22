@@ -23,6 +23,7 @@ item.ItemSlingshot.name=Slingshot
 item.ItemHardStone.name=Small hard stone
 item.ItemSharpStone.name=Small sharp stone
 item.ItemSoftStone.name=Small soft stone
+item.ItemSack.name=Burlap Sack
 
 #=======
 #= GUI =

@@ -8,6 +8,7 @@ import net.minecraft.world.World;
 // import tfcprimitivetech.gui.GuiBurlapSack;
 // import tfcprimitivetech.items.InventoryItem;
 
+import com.bioxx.tfc.Containers.ContainerVessel;
 
 //import com.bioxx.tfc.Containers.ContainerVessel;
 
@@ -49,8 +50,10 @@ public class GuiHandler implements IGuiHandler
         TileEntity tileEntity = world.getTileEntity(x, y, z);
 		switch (Id)
 		{
-			case 2:
-//				return new GuiBurlapSack(player.inventory, new InventoryItem(player.getHeldItem()));
+//		case 50:
+//		{
+//			return new ContainerVessel(player.inventory, world, x, y, z);
+//		}
 			default:
 				return null;
 		}

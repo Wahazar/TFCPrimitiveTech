@@ -10,10 +10,11 @@ import tfcprimitivetech.entities.EntityProjectileHardStone;
 import tfcprimitivetech.entities.EntityProjectileSoftStone;
 import tfcprimitivetech.entities.EntityProjectileStone;
 import tfcprimitivetech.handlers.GuiHandler;
+import tfcprimitivetech.handlers.ServerTickHandler;
 // import tfcprimitivetech.tileentities.TileEntityBurlapSack;
 import tfcprimitivetech.tileentities.TileEntityWoodenPressWet;
 
-import com.bioxx.tfc.Handlers.ServerTickHandler;
+//import com.bioxx.tfc.Handlers.ServerTickHandler;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.event.FMLInterModComms;
