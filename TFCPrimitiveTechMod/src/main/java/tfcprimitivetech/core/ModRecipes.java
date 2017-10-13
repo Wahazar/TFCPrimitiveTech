@@ -6,6 +6,8 @@ import com.bioxx.tfc.api.Crafting.BarrelManager;
 import com.bioxx.tfc.api.Crafting.BarrelMultiItemRecipe;
 import com.bioxx.tfc.api.Crafting.BarrelRecipe;
 import com.bioxx.tfc.api.Crafting.CraftingManagerTFC;
+import com.bioxx.tfc.api.Crafting.KilnCraftingManager;
+import com.bioxx.tfc.api.Crafting.KilnRecipe;
 import com.bioxx.tfc.api.HeatRaw;
 
 import java.util.List;
@@ -19,6 +21,7 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 import net.minecraftforge.fluids.FluidStack;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -34,15 +37,17 @@ public class ModRecipes
 	public static final int WILD = OreDictionary.WILDCARD_VALUE;
 	
 	//private static AnvilManager anvilManager = AnvilManager.getInstance();
-	//private static BarrelManager barrelManager = BarrelManager.getInstance();
-	//private static CraftingManagerTFC craftingManager = CraftingManagerTFC.getInstance();
-	//private static KilnCraftingManager kilnCraftingManager = KilnCraftingManager.getInstance();
+	private static BarrelManager barrelManager = BarrelManager.getInstance();
+	private static CraftingManagerTFC craftingManager = CraftingManagerTFC.getInstance();
+	private static KilnCraftingManager kilnCraftingManager = KilnCraftingManager.getInstance();
 	//private static QuernManager quernManager = QuernManager.getInstance();
 
 	// Plans
 
 	public static void initialise()
 	{
+		OreDictionary.registerOre("ingotWood", new ItemStack(ModItems.itemClayBrick, 1, 1));
+		
 		System.out.println("[" + ModDetails.ModName + "] Registering Recipes");
 
 		registerRecipes();
@@ -51,6 +56,7 @@ public class ModRecipes
 		
         registerBarrelRecipes();
 
+        registerKilnRecipes();
 		
 		System.out.println("[" + ModDetails.ModName + "] Done Registering Recipes");
 	}
@@ -85,7 +91,16 @@ public class ModRecipes
 	private static void registerAnvilRecipes()
 	{		
 	}
-	
+
+	private static void registerKilnRecipes()
+	{		
+		kilnCraftingManager.addRecipe(
+				new KilnRecipe(
+						new ItemStack(ModItems.itemClayBrick,1,0),
+						0, 
+						new ItemStack(ModItems.itemClayBrick,1,1)));
+	}
+
     private static void registerBarrelRecipes()
     {
         BarrelManager.getInstance().addRecipe(new BarrelRecipe(new ItemStack(ModItems.powderAsh, 1, 0), new FluidStack(TFCFluids.FRESHWATER, 500), null, new FluidStack(FluidList.BasePotashLiquor, 500), 8).setMinTechLevel(0).setSealedRecipe(true).setRemovesLiquid(false).setAllowAnyStack(false));
@@ -111,6 +126,11 @@ public class ModRecipes
     			 else if (tmpRecipe instanceof ShapedOreRecipe)
     			 {
     				 ShapedOreRecipe recipe = (ShapedOreRecipe)tmpRecipe;
+					 recipeResult = recipe.getRecipeOutput();    				 
+    			 }   			
+    			 else if (tmpRecipe instanceof ShapelessOreRecipe)
+    			 {
+    				 ShapelessOreRecipe recipe = (ShapelessOreRecipe)tmpRecipe;
 					 recipeResult = recipe.getRecipeOutput();    				 
     			 }   			
     			 if (ItemStack.areItemStacksEqual(resultItem, recipeResult)) {
@@ -154,6 +174,18 @@ public class ModRecipes
 				{ "## ##", "## ##", "     ", "## ##", "## ##", Character.valueOf('#'), new ItemStack(TFCItems.flatRock, 1, i + Global.STONE_SED_START) });
 		}
 		
+		CraftingManagerTFC.getInstance().addRecipe(new ItemStack(ModItems.itemClayBrick, 6), new Object[] { "  #  ","#####","  #  ","#####","  #  ", '#', new ItemStack(TFCItems.flatClay, 1, 1)});		
+		RemoveRecipe(new ItemStack(Blocks.brick_block, 1));
+		GameRegistry.addRecipe(new ItemStack(Blocks.brick_block, 4, 0), "PXP", "XPX", "PXP", 'P', new ItemStack(ModItems.itemClayBrick, 1, 1), 'X', new ItemStack(TFCItems.mortar, 1));
+		
+		GameRegistry.addShapelessRecipe(new ItemStack(ModItems.itemWoodenClub, 1, 0), new Object[] { new ItemStack(Items.flint, 1, 0), new ItemStack(Items.flint, 1, 0), new ItemStack(Items.flint, 1, 0), new ItemStack(TFCItems.logs, 1, -1) });	
+
+        if (TFCPrimitiveTech.instance.isHardArrowRecipe)
+        {
+        	RemoveRecipe(new ItemStack(TFCItems.arrow, 8));
+        	GameRegistry.addShapelessRecipe(new ItemStack(TFCItems.arrow, 1, 0), new Object[] { new ItemStack(TFCItems.stick, 1, 0), new ItemStack(Items.flint, 1, 0), new ItemStack(Items.feather, 1, 0) });
+        }
+        
         if (TFCPrimitiveTech.instance.isPaperEnabled)
         	RemoveRecipe(new ItemStack(Items.paper, 3));
 

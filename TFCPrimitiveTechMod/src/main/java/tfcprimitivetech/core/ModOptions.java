@@ -172,6 +172,7 @@ public class ModOptions
     {
         TFCPrimitiveTech.instance.isPaperEnabled = config.get(CategoryName_Options, "PaperEnabled", true).getBoolean();
         TFCPrimitiveTech.instance.isSlingshotEnabled = config.get(CategoryName_Options, "SlingshotEnabled", true).getBoolean();
+        TFCPrimitiveTech.instance.isHardArrowRecipe = config.get(CategoryName_Options, "HardArrowRecipe", true).getBoolean();
 
     }
 }

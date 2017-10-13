@@ -2,6 +2,7 @@ package tfcprimitivetech;
 
 import java.io.File;
 
+import net.minecraft.item.Item.ToolMaterial;
 import net.minecraftforge.common.MinecraftForge;
 import tfcprimitivetech.core.ModBlocks;
 import tfcprimitivetech.core.ModCommonProxy;
@@ -25,13 +26,15 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.common.util.EnumHelper;
 
 @Mod(modid = ModDetails.ModID, name = ModDetails.ModName, version = ModDetails.ModVersion, dependencies = ModDetails.ModDependencies)
 public class TFCPrimitiveTech
 {
-
-	public static boolean isPaperEnabled;
-	public static boolean isSlingshotEnabled;
+	public static ToolMaterial woodenClubMaterial;
+	public boolean isPaperEnabled;
+	public boolean isSlingshotEnabled;
+	public boolean isHardArrowRecipe;
 	
 	@Instance(ModDetails.ModID)
 	public static TFCPrimitiveTech instance;
@@ -68,6 +71,8 @@ public class TFCPrimitiveTech
 		proxy.registerTileEntities(true);
 		// Register Sound Handler (Client only)
 		proxy.registerSoundHandler();
+		
+		woodenClubMaterial = EnumHelper.addToolMaterial("woodenClub", 1,	120, 2, 80,	5);
 		
 		ModItems.initialise();
         

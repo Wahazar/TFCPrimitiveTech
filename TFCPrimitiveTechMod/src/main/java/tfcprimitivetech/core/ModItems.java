@@ -16,6 +16,8 @@ import tfcprimitivetech.items.ItemSharpStone;
 import tfcprimitivetech.items.ItemHardStone;
 import tfcprimitivetech.items.ItemSoftStone;
 import tfcprimitivetech.items.ItemSlingshot;
+import tfcprimitivetech.items.ItemWoodenClub;
+import tfcprimitivetech.items.ItemClayBrick;
 
 public class ModItems 
 {
@@ -29,7 +31,9 @@ public class ModItems
 	public static Item itemSharpStone;
 	public static Item itemHardStone;
 	public static Item itemSoftStone;	
-	public static Item itemSlingshot;	
+	public static Item itemSlingshot;
+	public static Item itemWoodenClub;	
+	public static Item itemClayBrick;	
 //	public static Item itemSack;	
 	
 	public static void initialise()
@@ -39,9 +43,14 @@ public class ModItems
 		itemWoodenTwig = new ItemWoodenTwig();
 		powderAsh = new PowderAsh();
 		woodenBucket_BasePotashLiquor = new WoodenBucket_BasePotashLiquor();
-		itemCelluloseFibers = new ItemCelluloseFibers();
-		itemWoodenPress = new ItemWoodenPress();
+        if (TFCPrimitiveTech.instance.isPaperEnabled)
+        {
+        	itemCelluloseFibers = new ItemCelluloseFibers();
+        	itemWoodenPress = new ItemWoodenPress();
+        }
 		itemLeatherBelt = new ItemLeatherBelt();
+		itemWoodenClub = new ItemWoodenClub();
+		itemClayBrick = new ItemClayBrick().setUnlocalizedName("Brick");
         if (TFCPrimitiveTech.instance.isSlingshotEnabled)
         {
         	itemSharpStone = new ItemSharpStone();
@@ -62,9 +71,14 @@ public class ModItems
 	  GameRegistry.registerItem(itemWoodenTwig, "itemWoodenTwig");
 	  GameRegistry.registerItem(powderAsh, "powderAsh");
 	  GameRegistry.registerItem(woodenBucket_BasePotashLiquor, "woodenBucket_BasePotashLiquor");
-	  GameRegistry.registerItem(itemCelluloseFibers, "itemCelluloseFibers");
-	  GameRegistry.registerItem(itemWoodenPress, "itemWoodenPress");
+      if (TFCPrimitiveTech.instance.isPaperEnabled)
+      { 
+    	  GameRegistry.registerItem(itemCelluloseFibers, "itemCelluloseFibers");
+    	  GameRegistry.registerItem(itemWoodenPress, "itemWoodenPress");
+	  }
 	  GameRegistry.registerItem(itemLeatherBelt, "itemLeatherBelt");
+	  GameRegistry.registerItem(itemWoodenClub, "itemWoodenClub");
+	  GameRegistry.registerItem(itemClayBrick, "itemClayBrick");
       if (TFCPrimitiveTech.instance.isSlingshotEnabled)
       {
     	  GameRegistry.registerItem(itemSharpStone, "itemSharpStone");

@@ -23,7 +23,9 @@ item.ItemSlingshot.name=Slingshot
 item.ItemHardStone.name=Small hard stone
 item.ItemSharpStone.name=Small sharp stone
 item.ItemSoftStone.name=Small soft stone
-item.ItemSack.name=Burlap Sack
+item.ItemWoodenClub.name=Wooden Club
+item.Brick.Clay Brick.name=Clay Brick
+item.Brick.Ceramic Brick.name=Brick
 
 #=======
 #= GUI =
