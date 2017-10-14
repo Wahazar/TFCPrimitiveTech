@@ -46,7 +46,7 @@ public class ModRecipes
 
 	public static void initialise()
 	{
-		OreDictionary.registerOre("ingotWood", new ItemStack(ModItems.itemClayBrick, 1, 1));
+		OreDictionary.registerOre("ingotBrick", new ItemStack(ModItems.itemClayBrick, 1, 1));
 		
 		System.out.println("[" + ModDetails.ModName + "] Registering Recipes");
 
