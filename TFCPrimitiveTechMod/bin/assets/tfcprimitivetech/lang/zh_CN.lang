@@ -1,0 +1,49 @@
+## 汉化者= 233Isaac
+#This is the Main language configuration file
+#
+#If you want to color code the text then I recommend you visit http://www.minecraftwiki.net/wiki/Formatting_codes#Color_codes
+#To create the � symbol which is used for assigning a color to the following text press Alt + 21 on Windows. For other OSes, view the above link.
+#This file needs to be UTF-8 encoded to work with MC 1.7+
+
+item.ItemSlingshot.name=弹弓
+item.ItemHardStone.name=坚硬石子
+item.ItemSharpStone.name=锋利石子
+item.ItemSoftStone.name=软石子
+item.ItemWoodenClub.name=木棒
+item.Brick.Clay Brick.name=粘土砖
+item.Brick.Ceramic Brick.name=红砖
+
+#=======
+#= GUI =
+#=======
+
+
+#===========
+#= Strings =
+#===========
+
+
+#========
+#= Misc =
+#========
+fluid.basePotashLiquor=钾碱水
+fluid.waste=废液
+tile.WoodenPressWet.Wet.name=压纸器(湿)
+tile.WoodenPressWet.Dry.name=压纸器(干)
+item.ItemWoodenPress.name=压纸器
+item.ItemWoodenTwig.name=木枝
+item.PowderAsh.name=灰烬
+item.ItemCelluloseFibers.name=造纸纤维
+item.ItemLeatherBelt.name=皮带
+item.WoodenBucket_BasePotashLiquor.name=木桶(钾碱水)
+#== Creative Tabs ==
+
+
+#=========
+#= WAILA =
+#=========
+
+#== Tooltips ==
+
+
+#== Options ==
